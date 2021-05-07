@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fake News Detector</title>
+        <script src="https://use.fontawesome.com/624fcb6423.js"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">  
+
+    </head>
+    <style>
+        /* * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,body {
+            font-family: 'Jost', sans-serif;
+            background-color: #d9d9d9;
+            height: 100%;
+            width: 100%;
+        } */
+        @import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        :root {
+            /* Base font size */
+            font-size: 10px;
+
+            /* Heading height variable*/
+            --heading-height: 25em;
+        }
+
+        body {
+            font-family: "Roboto", Arial, sans-serif;
+            min-height: 100vh;
+            background-color: #d9d9d9;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            height: var(--heading-height);
+        }
+
+        /* Create angled background with 'before' pseudo-element */
+        header::before {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 0;
+            bottom: 6em;
+            width: 100%;
+            height: calc(var(--heading-height) + 10em);
+            z-index: -1;
+            transform: skewY(-3.5deg);
+            background: 
+                linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
+                url(https://images.unsplash.com/photo-1585621243952-f68eae991dd6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80) no-repeat center,
+                linear-gradient(#4e4376, #2b5876);
+            background-size: cover;
+            border-bottom: .2em solid #fff;
+        }
+
+        h1 {
+            font-size: calc(2.8em + 2.6vw);
+            font-weight: 700;
+            letter-spacing: .01em;
+            padding: 10rem 0 0 4.5rem;
+            text-shadow: .022em .022em .022em #111;
+            color: #fff;
+        }
+
+        main {
+            padding: calc(var(--heading-height) + 1.5vw) 4em 0;
+        }
+
+        p {
+            font-size: calc(2em + .25vw);
+            font-weight: 400;
+            line-height: 2;
+            margin-bottom: 1.5em;
+            color: #fcfcfc;
+        }
+        input:hover, textarea:hover {
+            outline: none;
+            border: 3px solid #095484;
+            background: #e6eef7;
+        }
+
+        a::before {  
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        }
+
+        a:hover::before {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+        }
+
+        a::before {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        inset: 0 0 0 0;
+        background: hsl(201, 24%, 64%);
+        z-index: -1;
+        transition: transform .3s ease;
+        }
+
+        a {
+        position: relative;
+        }
+        @media screen and (max-width: 940px){
+            h1 {
+            font-size: calc(2.8em + 2vw);
+            }
+        }
+
+    </style> 
+    <body>
+        <header>
+            <h1>Fake News Classifier</h1>
+        </header>
+        <main>
+            <center>
+                <p style="font-family: 'Jost', sans-serif; font-size: 30px;color: #43383e; font-weight: bold;">Result for the Article</p>
+
+                <div class="results">
+                    {% if prediction== "Real"%}
+                    <h2 style="font-family: 'Jost', sans-serif; font-size: 60px;color: #43383e;">This article is Real!</h2>
+                    {% elif prediction== "Fake"%}
+                    <h2 style="font-family: 'Jost', sans-serif; font-size: 60px;color: #43383e;">This article is Fake!</h2>
+                    {% endif %}
+                </div>
+                <div>
+                    <h2 style="font-family: 'Jost', sans-serif; font-size: 25px;color: #43383e; margin-top: 50px;">More Information</h2>
+                    <p style="font-family: 'Jost', sans-serif; font-size: 20px;color: #43383e; margin: 2% 10% 10% 10%;" >This model uses a <code>Passive Aggressive Classifier</code> with the parameters of <code>max_iter=50, C=0.5</code>. The <a href=“https://www.kaggle.com/c/fake-news/data” style="color: #43383e;">dataset</a> has 20,800 different articles with 10413 “Fake” and 10387 “Real”.  The test size was 25% and the accuracy was 96.43%. Additionally, the K fold accuracy was  96.28% when <code>cv=5</code>. To test the model further, testing was done with a different <a href=“https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset” style="color: #43383e;">dataset</a>. Using this dataset, the accuracy was 76.43%. 
+                        Limitations: The datasets used were from 2016-2018 based on US politics hence the model works best with US political articles.
+                        See the code on <a href="https://github.com/shloakr/Fake-News-Classifier" style="color: #43383e;">github</a>.
+                        This website was made using Flask as a backend and HTML, CSS and Java Script for frontend and validation.
+                        <br>Ps: If you find/have a newer dataset please email it to me at: <a href="mailto:shloakrathod1@gmail.com" style="color: #43383e;">shloakrathod1@gmail.com</a>.
+                        <br><br><b>Feel free to reach out to me!</b>
+                    </p>
+                </div>
+            </center>
+        </main>
+        <style>
+            .site-footer{
+                background-color:#26272b;
+                padding:45px 0 20px;
+                font-size:15px;
+                line-height:24px;
+                color:#737373;
+            }
+            .site-footer hr{
+                border-top-color:#bbb;
+                opacity:0.5
+            }
+            .site-footer hr.small{
+                margin:20px 0
+            }
+            .site-footer h6{
+                color:#fff;
+                font-size:16px;
+                text-transform:uppercase;
+                margin-top:5px;
+                letter-spacing:2px
+            }
+            .site-footer a{
+                color:#737373;
+            }
+            .site-footer a:hover{
+                color:#3366cc;
+                text-decoration:none;
+            }
+            .footer-links{
+                padding-left:0;
+                list-style:none
+            }
+            .footer-links li{
+                display:block
+            }
+            .footer-links a{
+                color:#737373
+            }
+            .footer-links a:active,.footer-links a:focus,.footer-links a:hover{
+                color:#3366cc;
+                text-decoration:none;
+            }
+            .footer-links.inline li{
+                display:inline-block
+            }
+            .site-footer .social-icons{
+                text-align:center;
+            }
+            .site-footer .social-icons a{
+                width:40px;
+                height:40px;
+                line-height:40px;
+                margin-left:6px;
+                margin-right:0;
+                border-radius:100%;
+                background-color:#33353d
+            }
+            .copyright-text{
+                margin:0;
+                font-family: 'Jost', sans-serif;
+                font-size: 20px;
+                color: #818a91;
+            }
+            @media (max-width:991px){
+                .site-footer [class^=col-]{
+                    margin-bottom:30px
+                }
+            }
+            @media (max-width:767px){
+                .site-footer{
+                    padding-bottom:0
+                }
+                .site-footer .copyright-text,.site-footer .social-icons{
+                    text-align:center
+                }
+            }
+            .social-icons{
+                padding-left:0;
+                margin-bottom:0;
+                list-style:none
+            }
+            .social-icons li{
+                display:inline-block;
+                margin-bottom:4px
+            }
+            .social-icons li.title{
+                margin-right:15px;
+                text-transform:uppercase;
+                color:#96a2b2;
+                font-weight:700;
+                font-size:13px
+            }
+            .social-icons a{
+                background-color:#eceeef;
+                color:#818a91;
+                font-size:16px;
+                display:inline-block;
+                line-height:44px;
+                width:44px;
+                height:44px;
+                text-align:center;
+                margin-right:8px;
+                border-radius:100%;
+                -webkit-transition:all .2s linear;
+                -o-transition:all .2s linear;
+                transition:all .2s linear
+            }
+            .social-icons a:active,.social-icons a:focus,.social-icons a:hover{
+                color:#fff;
+                background-color:#29aafe
+            }
+            .social-icons.size-sm a{
+                line-height:34px;
+                height:34px;
+                width:34px;
+                font-size:14px
+            }
+            .social-icons a.facebook:hover{
+                background-color:#3b5998
+            }
+            .social-icons a.twitter:hover {
+                background-color:#919191
+            }
+            .social-icons a.linkedin:hover{
+                background-color:#007bb6
+            }
+            .social-icons a.dribbble:hover{
+                background-color:#ea4c89
+            }
+            @media (max-width:767px)
+            {
+                .social-icons li.title{
+                    display:block;
+                    margin-right:0;
+                    font-weight:600
+                }
+            }
+        </style>
+        <footer class="site-footer">
+            <center>
+                <hr>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                            <p class="copyright-text">Copyright &copy; 2021 All Rights Reserved by Shloak Rathod</p>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <ul class="social-icons">
+                                <li><a class="twitter" href="https://github.com/shloakr"><i class="fa fa-github"></i></a></li>
+                                <li><a class="linkedin" href="https://www.linkedin.com/in/shloak-rathod-0bb7531b0/"><i class="fa fa-linkedin"></i></a></li>   
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </center>
+        </footer>
+    </body>
+</html>
