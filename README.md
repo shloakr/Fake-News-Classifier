@@ -11,7 +11,7 @@ The article used for this example is from the **New York Times**: https://www.ny
 
 
 ### Result Page
-Here the classification takes place.
+Here the classification is outputted.
 
 ![127 0 0 1_5000_predict](https://user-images.githubusercontent.com/70055735/118726696-4edd8680-b84f-11eb-8231-03dd92379a95.png)
 
