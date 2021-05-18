@@ -24,7 +24,7 @@ At this point make sure to have your virtual environment activated. You should g
 ```pip install -r requirements.txt```<br/>
 At this point make sure to be in your folder that holds the ```app.py``` file.<br/>
 ```python app.py```
-
+Then copy paste the local host with the port in any web browser. It will most likely start with '127.0'.
 
 ## Issues
 Hosting this projects takes 4GB ram on a VPS hence making it difficult to host.
