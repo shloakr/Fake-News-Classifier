@@ -23,7 +23,7 @@ Install VirtualEnv.<br/>
 At this point make sure to have your virtual environment activated. You should get ```(env)``` in you terminal.<br/>
 ```pip install -r requirements.txt```<br/>
 At this point make sure to be in your folder that holds the ```app.py``` file.<br/>
-```python app.py```
+```python app.py```<br/>
 Then copy paste the local host with the port in any web browser. It will most likely start with '127.0'.
 
 ## Issues
