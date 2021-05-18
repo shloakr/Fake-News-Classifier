@@ -15,5 +15,16 @@ Here the classification is outputted.
 
 ![127 0 0 1_5000_predict](https://user-images.githubusercontent.com/70055735/118726696-4edd8680-b84f-11eb-8231-03dd92379a95.png)
 
+## To run this on your local host
+**Mac or Linux**
+Install VirtualEnv.<br/>
+```python3 -m venv env```<br/>
+```source env/bin/activate```<br/>
+At this point make sure to have your virtual environment activated. You should get ```(env)``` in you terminal.<br/>
+```pip install -r requirements.txt```<br/>
+At this point make sure to be in your folder that holds the ```app.py``` file.<br/>
+```python app.py```
+
+
 ## Issues
 Hosting this projects takes 4GB ram on a VPS hence making it difficult to host.
