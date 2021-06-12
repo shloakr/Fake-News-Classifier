@@ -31,3 +31,16 @@ Then copy paste the local host with the port in any web browser. It will most li
 
 ## Issues
 Hosting this projects takes 4GB ram on a VPS hence making it difficult to host.
+
+## Cite
+If you find the code in the repository useful, please cite it using:
+```
+@miscsShlaokr2021Fake-News-Classifier,
+  author = {Shloak Rathod},
+  title = {An Open Source Implementation of Fake News classification},
+  year = {2021},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {Available at \url{https://github.com/shloakr/Fake-News-Classifier/}}
+}
+```
