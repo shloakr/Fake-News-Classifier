@@ -35,7 +35,7 @@ Hosting this projects takes 4GB ram on a VPS hence making it difficult to host.
 ## Cite
 If you find the code in the repository useful, please cite it using:
 ```
-@miscsShlaokr2021Fake-News-Classifier,
+@miscsShloakr2021Fake-News-Classifier,
   author = {Shloak Rathod},
   title = {An Open Source Implementation of Fake News classification},
   year = {2021},
